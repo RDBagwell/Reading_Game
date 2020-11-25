@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+body{
+    background: #BBD2C5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #292E49, #536976, #BBD2C5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #292E49, #536976, #BBD2C5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Varela Round', sans-serif;
+    color: whitesmoke;
+}
+
+select{
+    background: whitesmoke;
+    border: 0;
+    padding: 8px;
+}
+
+select:focus{
+    outline: none;
+}
+
+button {
+    width: 200px;
+    height: 36px;
+    font-size: 25px;
+    font-family: 'Varela Round', sans-serif;
+    background: fixed;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+button:focus {
+outline: none;
+}
+
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    gap: 20px;
+    background: #FDC830;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    justify-content: center;
+    padding: 40px;
+    border: 1px solid aliceblue;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: honeydew;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .95);
+    color: black;
+    cursor: pointer;
+}
