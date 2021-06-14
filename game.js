@@ -5,6 +5,7 @@ const cardList = document.getElementById('card-list');
 const card = document.getElementsByClassName('card');
 const message = document.getElementById('message');
 const filePath = './word_list.json';
+const testSentance = 'The quick brown fox jumps over the lazy dog.'
 
 let utterThis = new SpeechSynthesisUtterance();
 let wordToFind = "";
