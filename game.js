@@ -73,15 +73,16 @@ async function getWord(){
  }
 
  function sayWordToFind(randomWord) {
+    const voices  = synth.getVoices();
     utterThis.text = `Find the word...${randomWord}`;
-    // console.log(synth.getVoices()[0])
+    utterThis.voice = voices[2]
     synth.speak(utterThis);
     if(synth.pending){
       synth.cancel()
     }
  }
 
-
+//  utterThis.lang = ​"es-ES"
 readText.addEventListener('click', getWord);
 
 createWordCard();
