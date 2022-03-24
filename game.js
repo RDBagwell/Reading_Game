@@ -1,15 +1,13 @@
 const synth = window.speechSynthesis;
 const readText = document.getElementById('readText');
 const cardList = document.getElementById('card-list');
-const card = document.getElementsByClassName('card');
 const message = document.getElementById('message');
 const filePath = './word_list.json';
-const testSentance = 'The quick brown fox jumps over the lazy dog.'
 const timeDelay = 2000
+const utterThis = new SpeechSynthesisUtterance();
 
-let utterThis = new SpeechSynthesisUtterance();
 let wordToFind = "";
-let gameLevel = 2;
+let gameLevel = 0;
 
 async function getWordList(level = 0){
   const res = await fetch(filePath);
@@ -82,7 +80,6 @@ async function getWord(){
     }
  }
 
-//  utterThis.lang = ​"es-ES"
 readText.addEventListener('click', getWord);
 
 createWordCard();

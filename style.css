@@ -12,16 +12,6 @@ body{
     color: whitesmoke;
 }
 
-select{
-    background: whitesmoke;
-    border: 0;
-    padding: 8px;
-}
-
-select:focus{
-    outline: none;
-}
-
 button {
     width: 200px;
     height: 36px;
@@ -34,7 +24,7 @@ button {
 }
 
 button:focus {
-outline: none;
+    outline: none;
 }
 
 .card-list {
