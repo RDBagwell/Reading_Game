@@ -12,6 +12,8 @@ import './screens/map.js';
 import './screens/play.js';
 import './screens/complete.js';
 import './screens/scores.js';
+import './screens/gate.js';
+import './screens/settings.js';
 
 const NOTICES = {
   unavailable: "This browser isn't letting the game save, so scores will be forgotten when you close it. Everything else works!",
