@@ -1,15 +1,30 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reading Game</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="description" content="A word-finding game that helps young children learn to read.">
+  <title>Reading Game</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./js/main.js"></script>
 </head>
 <body>
-    <h1>Reading Game</h1>
-    <div id="message" class="message"></div>
+  <h1>Reading Game</h1>
+
+  <section id="start-screen">
+    <button id="start-button" type="button">Tap to play</button>
+  </section>
+
+  <section id="unsupported" hidden>
+    <p>This game talks! It needs a browser that can speak words out loud.
+       Please try a recent version of Safari, Chrome, Edge or Firefox.</p>
+  </section>
+
+  <section id="game" hidden>
+    <p id="message" class="message" aria-live="polite"></p>
     <div class="card-list" id="card-list"></div>
-    <button id="readText">Get Word</button>
-    <script src="./game.js"></script>
+    <button id="hear-again" type="button">Hear it again</button>
+  </section>
 </body>
 </html>
