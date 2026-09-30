@@ -2,25 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
-  <meta name="description" content="A word-finding game that helps young children learn to read.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="A bright, playful word-finding game that helps young children learn to read.">
   <title>Reading Game</title>
   <link rel="stylesheet" href="./style.css">
   <script type="module" src="./js/main.js"></script>
 </head>
 <body>
-  <h1>Reading Game</h1>
-
-  <section id="start-screen">
-    <button id="start-button" type="button">Tap to play</button>
-  </section>
-
-  <section id="unsupported" hidden>
-    <p>This game talks! It needs a browser that can speak words out loud.
-       Please try a recent version of Safari, Chrome, Edge or Firefox.</p>
-  </section>
-
-  <main id="app"></main>
+  <main id="app" class="app">
+    <noscript>The Reading Game needs JavaScript turned on.</noscript>
+  </main>
 </body>
 </html>
