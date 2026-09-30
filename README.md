@@ -6,8 +6,7 @@ matches.
 
 **Play it:** <https://rdbagwell.github.io/Reading_Game/>
 
-> **TODO (Robert):** write the origin story here in your own words: building
-> the first version early in your career to help your daughter learn to read.
+When my daughter was in first grade, I noticed she didn't like the reading assignments her teacher had her do. She, however, liked playing video games; that is when I got the idea to create this game.
 
 **Then and now:** the original game is preserved at the
 [`v1-original`](https://github.com/RDBagwell/Reading_Game/tree/v1-original) tag.
