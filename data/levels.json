@@ -47,7 +47,7 @@
       "cards": 6,
       "distractors": "rhyme",
       "goal": 8,
-      "words": ["cat", "hat", "bat", "rat", "mat", "sat", "hop", "top", "mop", "pop", "pig", "big", "dig", "wig", "hen", "pen", "ten", "sun", "run", "fun", "bun", "the", "and", "you", "see", "go", "look", "like", "can", "man"]
+      "words": ["cat", "hat", "bat", "rat", "mat", "hop", "top", "mop", "pop", "pig", "big", "dig", "wig", "hen", "pen", "ten", "sun", "run", "fun", "the", "and", "you", "go", "no", "he", "me", "we", "can", "man", "fan"]
     },
     {
       "id": 5,

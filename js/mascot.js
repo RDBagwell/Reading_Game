@@ -32,7 +32,7 @@ export function owlSvg({ title = 'Pip the owl' } = {}) {
       d: 'M78 132 q6 7 12 0 M96 132 q6 7 12 0 M114 132 q6 7 12 0 M86 150 q6 7 12 0 M104 150 q6 7 12 0',
       fill: 'none', stroke: '#EDBE83', 'stroke-width': 3.5, 'stroke-linecap': 'round',
     }),
-    // eyes
+    // eyes (the lids and happy eyes start hidden; CSS animates them)
     svg('g', { class: 'eyes' },
       svg('circle', { cx: 72, cy: 88, r: 29, fill: c.eye, stroke: c.dark, 'stroke-width': 5 }),
       svg('circle', { cx: 128, cy: 88, r: 29, fill: c.eye, stroke: c.dark, 'stroke-width': 5 }),
@@ -41,11 +41,11 @@ export function owlSvg({ title = 'Pip the owl' } = {}) {
         svg('circle', { cx: 124, cy: 91, r: 13, fill: c.pupil }),
         svg('circle', { cx: 81, cy: 86, r: 4.5, fill: '#fff' }),
         svg('circle', { cx: 129, cy: 86, r: 4.5, fill: '#fff' })),
-      svg('g', { class: 'happy-eyes' },
+      svg('g', { class: 'happy-eyes', opacity: 0 },
         svg('path', { d: 'M58 94 Q72 76 86 94', fill: 'none', stroke: c.pupil, 'stroke-width': 6, 'stroke-linecap': 'round' }),
         svg('path', { d: 'M114 94 Q128 76 142 94', fill: 'none', stroke: c.pupil, 'stroke-width': 6, 'stroke-linecap': 'round' })),
-      svg('ellipse', { class: 'lid', cx: 72, cy: 88, rx: 31, ry: 31, fill: c.body }),
-      svg('ellipse', { class: 'lid', cx: 128, cy: 88, rx: 31, ry: 31, fill: c.body })),
+      svg('ellipse', { class: 'lid', cx: 72, cy: 88, rx: 31, ry: 31, fill: c.body, transform: 'scale(1 0)' }),
+      svg('ellipse', { class: 'lid', cx: 128, cy: 88, rx: 31, ry: 31, fill: c.body, transform: 'scale(1 0)' })),
     // cheeks and beak
     svg('circle', { cx: 50, cy: 118, r: 9, fill: c.cheek, opacity: 0.55 }),
     svg('circle', { cx: 150, cy: 118, r: 9, fill: c.cheek, opacity: 0.55 }),

@@ -85,8 +85,10 @@ describe('pickDistractors', () => {
     const d = run('different-start', 'cat', shortA, 5, ['zoo', 'egg']);
     expect(d).not.toContain('zoo');
     expect(d).not.toContain('egg');
+    // Level words come first; the top-up still prefers words that fit the mode.
     const small = run('rhyme', 'cat', ['cat', 'dog', 'sun'], 4, ['hat', 'bat', 'pig']);
-    expect(small.slice(0, 2).sort()).toEqual(['bat', 'hat']);
+    expect(small.slice(0, 2).sort()).toEqual(['dog', 'sun']);
+    expect(small.slice(2).sort()).toEqual(['bat', 'hat']);
     expect(small).toHaveLength(4);
   });
 

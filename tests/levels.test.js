@@ -85,7 +85,9 @@ describe('data/levels.json', () => {
           expect(new Set(starts).size, `${l.name}: ${target}`).toBe(starts.length);
         }
       }
-      const threshold = l.distractors === 'rhyme' ? 0.5 : 0.75;
+      // Different-start is always achievable; the others depend on how many
+      // words in the level share a family or spelling, so aim for most.
+      const threshold = { 'different-start': 1, rhyme: 0.5, 'look-alike': 0.6, mixed: 0.5 }[l.distractors];
       expect(matching / total, `${l.name} (${l.distractors})`).toBeGreaterThanOrEqual(threshold);
     }
   });

@@ -138,9 +138,8 @@ function cleanPool(words, exclude) {
 /**
  * Candidates ordered best-first for `mode`:
  *   1. level words that match the mode
- *   2. earlier-level words that match the mode (top-up, only if needed)
- *   3. level words that don't match
- *   4. earlier-level words that don't match
+ *   2. other level words, closest fit first
+ *   3. earlier-level words (a top-up, used only when the level runs short)
  * Within each group: best rank first, ties broken randomly.
  */
 function ordered(mode, target, level, extra, rng) {
@@ -155,7 +154,7 @@ function ordered(mode, target, level, extra, rng) {
   ];
   const [lm, ln] = split(level);
   const [em, en] = split(extra);
-  return [...sortGroup(lm), ...sortGroup(em), ...sortGroup(ln), ...sortGroup(en)];
+  return [...sortGroup(lm), ...sortGroup(ln), ...sortGroup(em), ...sortGroup(en)];
 }
 
 /**

@@ -51,8 +51,8 @@ The wrong choices matter as much as the target word:
   (*ship / shop / chip*), so the child has to read the whole word.
 - **`mixed`**: about half look-alikes and half other words from the level.
 
-Wrong choices come from the same level first. If a level doesn't have enough
-words that fit the mode, words from earlier levels are used to top it up.
+Wrong choices always come from the same level, best fit first. Words from
+earlier levels are only used if a level has too few words to fill the cards.
 
 ## Rules the tests check
 
