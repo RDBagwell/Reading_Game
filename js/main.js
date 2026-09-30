@@ -3,6 +3,7 @@
 import { createSpeech, isSpeechSupported } from './speech.js';
 import { loadLevels } from './levels.js';
 import { createStore, getBrowserStorage } from './storage.js';
+import { createSfx } from './sfx.js';
 import { ctx } from './context.js';
 import { setRoot, go } from './router.js';
 import './screens/start.js';
@@ -32,6 +33,8 @@ async function init() {
     return;
   }
 
+  ctx.sfx = createSfx(window);
+  ctx.sfx.setEnabled(record.settings.sfx);
   ctx.speech = createSpeech(window);
   ctx.speech.setRate(record.settings.rate);
   ctx.speech.setPreferredVoice(record.settings.voiceURI);

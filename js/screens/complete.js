@@ -2,6 +2,8 @@ import { el } from '../dom.js';
 import { register, go } from '../router.js';
 import { ctx, prefersReducedMotion } from '../context.js';
 import { screen } from '../ui.js';
+import { createMascot } from '../mascot.js';
+import { confetti } from '../effects.js';
 
 register('complete', ({ levelId, stars, bonus, base, score, outcome, firstTry, goal }) => {
   const level = ctx.levels.find((l) => l.id === levelId);
@@ -27,7 +29,7 @@ register('complete', ({ levelId, stars, bonus, base, score, outcome, firstTry, g
 
   const node = screen('complete',
     el('div', { class: 'complete-panel panel' },
-      el('div', { class: 'mascot-slot', 'data-mascot': 'dance' }),
+      el('div', { class: 'mascot-slot' }, createMascot('dance').node),
       el('h1', { class: 'complete-title', text: next ? 'Level complete!' : 'You finished every level!' }),
       el('p', { class: 'complete-level', text: `${level.emoji} ${level.name}` }),
       el('div', { class: 'big-stars', role: 'img', 'aria-label': `${stars} of 3 stars` }, ...starEls),
@@ -46,6 +48,9 @@ register('complete', ({ levelId, stars, bonus, base, score, outcome, firstTry, g
 
   // Celebrate: fanfare, stars pop in one by one, then the score counts up.
   ctx.sfx?.play('fanfare');
+  requestAnimationFrame(() => {
+    starEls.slice(0, stars).forEach((s, i) => timers.push(setTimeout(() => confetti(s, { count: 14 }), 400 + (i + 1) * 380)));
+  });
   if (!calm) {
     for (let n = 1; n <= stars; n += 1) timers.push(setTimeout(() => ctx.sfx?.play('star', n), 350 + n * 380));
     const start = performance.now() + 350 + stars * 380;

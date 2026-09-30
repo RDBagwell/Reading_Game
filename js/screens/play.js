@@ -8,6 +8,8 @@ import { starsFor, levelBonus } from '../scoring.js';
 import { applyLevelResult, isUnlocked } from '../progress.js';
 import { pickPraise, askPhrases, correctionPhrases } from '../praise.js';
 import { formatWord } from '../text.js';
+import { createMascot } from '../mascot.js';
+import { confetti, flyPoints } from '../effects.js';
 
 const MIN_CELEBRATE_MS = 900;
 
@@ -49,7 +51,8 @@ register('play', ({ levelId }) => {
     on: { click: repeat },
   }, el('span', { class: 'hear-icon', 'aria-hidden': 'true', text: '🔊' }), el('span', { class: 'hear-label', text: 'Hear it again' }));
   const status = el('p', { class: 'sr-only', 'aria-live': 'polite' });
-  const mascotSlot = el('div', { class: 'mascot-slot', 'data-mascot': 'play' });
+  const mascot = createMascot('idle');
+  const mascotSlot = el('div', { class: 'mascot-slot' }, mascot.node);
 
   const node = screen('play',
     el('header', { class: 'topbar play-topbar' },
@@ -109,6 +112,7 @@ register('play', ({ levelId }) => {
       void button.offsetWidth; // restart the wobble
       button.classList.add('wrong', 'tried');
       ctx.sfx?.play('soft');
+      mascot.nod();
       status.textContent = `That word is ${word}. Try again.`;
       // Hearing the word they tapped turns every mistake into a small lesson.
       speech.say(correctionPhrases(word, round.target));
@@ -118,8 +122,11 @@ register('play', ({ levelId }) => {
     locked = true;
     button.classList.add('correct');
     cards.classList.add('answered');
-    updateScore();
     ctx.sfx?.play('correct');
+    mascot.cheer();
+    confetti(button);
+    flyPoints(button, scoreBox, `+${result.points + result.bonus}`);
+    later(updateScore, 600);
     lastPraise = pickPraise(Math.random, lastPraise);
     status.textContent = `${lastPraise} ${result.points + result.bonus} points.`;
     await Promise.all([speech.say(lastPraise), wait(MIN_CELEBRATE_MS)]);
